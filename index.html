@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./font2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.0/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+       <div id="root">
+          <div class="container-fluid">
+            <label  for="">all mostra tutti i brani , rock ,pop,jazz,metal,rap & Latina</label><br>
+             <input v-model="cerca" type="text" placeholder="ricerca album per genere ">
+             <div v-if="cerca==''" class="coverHome">
+                      
+                      <img :src="logo" alt="">
+             </div>
+              <div class="row">
+                 
+                  <div v-if="ricercaGeneri(carta)" v-for="carta in dischi" style="width: 13rem; height: 17rem;" class="card">
+                          <div class="cover">
+                               <img :src="carta.poster" alt="">
+                          </div>
+                          <div class="info">
+                            <span><b>Titolo</b> {{carta.titolo}}</span><br>
+                            <span><b>Autore</b>{{carta.autore}}</span><br>
+                            <span><b>Genere</b>{{carta.genere}}</span><br>
+                            <span><b>Anno</b>{{carta.anno}}</span><br>
+                              <div class="play">
+                                <i class="fa-solid fa-play"></i>
+                              </div>
+                          </div>
+                  </div>
+
+              </div>
+          </div>
+       </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
